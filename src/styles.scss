@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@mixin flex {
+    display: flex
+}
+
+@mixin f-center {
+    justify-content: center;
+}
+
+.container{
+    margin: 40px;
+}
+
+.navbar {
+    background-color: darkgray;
+    @include flex();
+}
+
+.margin-r{
+    margin-right: 10px;
+}
+
+.input-field{
+    background-color: rgb(175, 175, 175);
+}
+
+.register, .login{
+    @include flex();
+    @include f-center();
+}
+
+.register-box, .login-box {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 0 1em gray;
+}
+
+.span-center{
+    align-items: center;
+}
+
+.error{
+    color: red;
+    font-style: italic;
+}
+
+.login-question{
+    margin-top: 1rem;
+    font-style: italic;
+    font-size: 11px;
+}

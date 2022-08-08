@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login">
+    <div class="login-box">
+        <span class="login"><h2>Log in!</h2></span>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput type="text" formControlName="username">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>       
+        </div>
+        <p class="error"> {{ loginError?.error }}</p>
+        <div class="login">
+            <button mat-raised-button color="primary" type="submit">Log In</button>
+        </div>
+        <div class="login-question">
+            Haven't account? <a routerLink="/register">Register now!</a>
+        </div>
+    </div>
+</form>
