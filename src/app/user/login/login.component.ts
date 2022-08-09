@@ -24,8 +24,10 @@ export class LoginComponent {
   onSubmit(){
     let status: ILoginStatus =  this.authService.login(this.username?.value, this.password?.value);
     if (status.success){
-      window.location.reload();
-      this.router.navigate(['']);
+      this.router.navigate([''])
+      .then(()=> {
+        window.location.reload();
+      });
     } else {
       this.loginError = status;
     }

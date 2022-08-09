@@ -1,20 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService, IRegisterStatus } from '../../auth.service';
+import { AuthService, IRegisterStatus, IUserData } from '../../auth.service';
 import { PasswordValidators } from './password.validators';
-
-export interface IUserData {
-  username: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  address: [
-    country: string,
-    city: string
-  ];
-  password: string;
-}
 
 @Component({
   selector: 'app-register',

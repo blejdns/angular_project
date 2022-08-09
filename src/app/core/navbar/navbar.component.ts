@@ -14,19 +14,15 @@ export class NavbarComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    let storeData = localStorage.getItem('isUserLoggedIn');
-
-    if (storeData != null && storeData == 'true'){
-      this.isUserLoggedIn = true;
-    } else {
-      this.isUserLoggedIn = false;
-    }
+    this.isUserLoggedIn = this.authService.loginStatus();
   }
 
   logout(){
     this.authService.logout();
-    window.location.reload();
-    this.router.navigate(['/']);
+    this.router.navigate([''])
+      .then(()=> {
+        window.location.reload();
+      });
   }
 
 }
