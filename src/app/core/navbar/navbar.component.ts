@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
 
@@ -7,7 +7,7 @@ import { AuthService } from '../../auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
 
   isUserLoggedIn = false;
 
@@ -15,6 +15,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.isUserLoggedIn = this.authService.loginStatus();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+      
   }
 
   logout(){

@@ -1,15 +1,19 @@
 <div class="navbar">
-    <a mat-button routerLink="/">Home</a>
-    <a mat-button routerLink="/shopping-cart">Shopping Cart</a>
-    <div *ngIf="isUserLoggedIn">
-        <button  mat-button [mat-menu-trigger-for]="menuList">Account<mat-icon>expand_more</mat-icon></button>
-        <mat-menu #menuList="matMenu" yPosition="below">
-            <a mat-menu-item routerLink="/my-orders">My Orders</a>
-            <a mat-menu-item routerLink="manage-orders">Manage Orders</a>
-            <a mat-menu-item routerLink="/manage-products">Manage Products</a>
-            <a mat-menu-item (click)="logout()">Log out</a>
-        </mat-menu>
+    <div class="container" id="navDiv">
+        <a mat-button routerLink="/">Home</a>
+        <a mat-button routerLink="/shopping-cart">Shopping Cart</a>
+        <div *ngIf="isUserLoggedIn" class="navbar-login-div">
+            <button mat-button [mat-menu-trigger-for]="menuList">Account<mat-icon>expand_more</mat-icon></button>
+            <mat-menu  class="account-nav-box" #menuList="matMenu" yPosition="below">
+                <a mat-menu-item routerLink="/my-orders">My Orders</a>
+                <a mat-menu-item routerLink="manage-orders">Manage Orders</a>
+                <a mat-menu-item routerLink="/manage-products">Manage Products</a>
+                <a mat-menu-item (click)="logout()">Log out</a>
+            </mat-menu>
+        </div>
+        <div *ngIf="!isUserLoggedIn" class="navbar-login-div">
+            <a mat-button routerLink="/login">Log In</a>
+            <a mat-button routerLink="/register">Register</a>
+        </div>
     </div>
-    <a *ngIf="!isUserLoggedIn" mat-button routerLink="/login">Log In</a>
-    <a *ngIf="!isUserLoggedIn" mat-button routerLink="/register">Register</a>
 </div>

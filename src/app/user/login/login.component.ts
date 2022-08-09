@@ -22,15 +22,18 @@ export class LoginComponent {
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
   onSubmit(){
-    let status: ILoginStatus =  this.authService.login(this.username?.value, this.password?.value);
-    if (status.success){
-      this.router.navigate([''])
-      .then(()=> {
-        window.location.reload();
-      });
-    } else {
-      this.loginError = status;
-    }
+    this.authService.login(this.username?.value, this.password?.value)
+    .subscribe( data => { 
+      if (data.success){
+        this.router.navigate([''])
+        .then(()=> {
+          window.location.reload();
+        });
+      } else {
+        this.loginError = data;
+      }
+    });
+
   }
 
   get username() {

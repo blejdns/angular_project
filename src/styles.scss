@@ -12,12 +12,52 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .container{
-    margin: 40px;
+    @include flex();
+    width: 70%;
+}
+
+.container-main{
+    @include flex();
+    @include f-center();
 }
 
 .navbar {
-    background-color: darkgray;
     @include flex();
+    @include f-center();
+    background-color: darkgray;
+    
+}
+
+#navDiv .mat-button {
+    margin: 5px 0px 5px 0px;
+}
+
+#navDiv .mat-button:hover {
+    margin: 5px 0px 5px 0px;
+    background-color: rgb(214, 214, 214);
+}
+
+.account-nav-box {
+    background-color: darkgray;
+}
+
+.main-color{
+    background-color: cadetblue;
+}
+
+.account-nav-box .mat-menu-item{
+    font-weight: 500;
+    color: black
+}
+
+.account-nav-box .mat-menu-item:hover{
+    font-weight: 500;
+    color: black;
+    background-color: rgb(214, 214, 214);
+}
+
+.navbar-login-div{
+    margin-left: auto;
 }
 
 .margin-r{

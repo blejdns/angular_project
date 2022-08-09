@@ -28,7 +28,7 @@ export interface ILoginStatus {
   providedIn: 'root'
 })
 export class AuthService {
-
+  result: ILoginStatus | undefined;
   isUserLoggedIn: boolean = false;
   isUserRegister: boolean = false;
   loggedUser: IUserData | undefined;
@@ -37,24 +37,28 @@ export class AuthService {
     {id: 1, username: 'admin', email: 'admin@mail.com', firstName: 'Admin', lastName: 'Admin last name', address:{country: null, city: null}, password: 'admin'},
   ];
 
-  login(userName: string, password: string): ILoginStatus {
+  login(userName: string, password: string): Observable <ILoginStatus> {
+    
     let findUser = this.registerUsers?.find((obj) => {
       return obj.username === userName;
-    })
+    });
     if (findUser) {
       if (password == findUser.password){
           this.isUserLoggedIn = true;
           window.localStorage.setItem('isUserLoggedIn', 'true');
+          this.result = {success: true, error: null};
         } else {
           this.isUserLoggedIn = false;
           window.localStorage.setItem('isUserLoggedIn', 'false');
-          return {success: false, error: 'Incorrect password'}
+          this.result = {success: false, error: 'Incorrect password'}
         }
     } else {
       window.localStorage.setItem('isUserLoggedIn', 'false');
-      return {success: false, error:"User doesn't exists"}
+      this.result = {success: false, error:"User doesn't exists"}
     }
-    return {success: true, error: null}
+    return of(this.result).pipe(
+      delay(1000)
+    );
   }
 
   logout(): void {
