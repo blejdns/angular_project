@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './core/home/home.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ManageOrdersComponent } from './manage-orders/manage-orders.component';
 import { ManageProductsComponent } from './manage-products/manage-products.component';
@@ -18,11 +17,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './user/login/login.component';
 import {MatInputModule} from '@angular/material/input';
 import { RegisterComponent } from './user/register/register.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ProductsComponent } from './products/products.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'shopping-cart', component: ShoppingCartComponent},
+  { path: 'products', component: ProductsComponent},
   { path: 'my-orders', component: OrdersComponent},
   { path: 'manage-orders', component: ManageOrdersComponent},
   { path: 'manage-products', component: ManageProductsComponent},
@@ -34,7 +37,6 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    ShoppingCartComponent,
     OrdersComponent,
     ManageOrdersComponent,
     ManageProductsComponent,
@@ -52,6 +54,8 @@ const routes: Routes = [
     MatIconModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatTabsModule,
+    MatSidenavModule,
   ],
   exports: [RouterModule],
   providers: [],

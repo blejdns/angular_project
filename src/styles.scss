@@ -12,18 +12,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .container{
-    @include flex();
-    width: 70%;
+    margin-top: 15px;
 }
 
-.container-main{
+.navbar-menu {
     @include flex();
-    @include f-center();
-}
-
-.navbar {
-    @include flex();
-    @include f-center();
+    flex-direction: column;
     background-color: darkgray;
     
 }
@@ -57,7 +51,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .navbar-login-div{
-    margin-left: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .margin-r{
@@ -74,10 +70,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .register-box, .login-box {
-    border: 1px solid black;
-    border-radius: 5px;
     padding: 1rem;
-    box-shadow: 0 0 1em gray;
+    margin-top: 40px;
 }
 
 .span-center{
@@ -93,4 +87,88 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-top: 1rem;
     font-style: italic;
     font-size: 11px;
+}
+
+.ads-box{
+    // margin: 0px 15rem 0px 15rem;
+    // height: 250px;
+    // width: 800px;
+    @include flex();
+    @include f-center();   
+}
+
+.img-ads{
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.mat-ink-bar {
+    display: none !important;
+}
+
+.mat-tab-label-active{
+    background-color: rgb(204, 204, 204);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.arrow-div{
+    @include flex();
+    align-items: center;
+    margin: 0px 10px 0px 5px;
+}
+
+.arrow-div:hover{
+    cursor: pointer;
+}
+
+.arrow-icon {
+    font-size: 30px;
+}
+
+.div-flex{
+    @include flex();
+}
+
+.button-nav{
+    float: right;
+    margin-right: 20px;
+    position:fixed;
+    top: 15px;
+    right: 0px;
+}
+
+.menu-button{
+    border: 3px solid black;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.menu-box{
+    background-color: rgb(235, 235, 235);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.menu-text{
+    margin: 40px 10px 10px 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#menuText a{
+    font-size: 25px;
+    margin: 5px 0px 5px 0px;
+}
+
+.close-menu{
+    position: absolute;
+    right: 15px;
+    font-size: 40px;
+}
+
+.close-menu:hover{
+    cursor: pointer;
+    color: gray
 }

@@ -1,13 +1,11 @@
-<div class="navbar">
-    <div class="container" id="navDiv">
+<!-- <div  class="navbar">
+    <div class="container-nav" id="navDiv">
         <a mat-button routerLink="/">Home</a>
-        <a mat-button routerLink="/shopping-cart">Shopping Cart</a>
+        <a mat-button routerLink="/products">Products</a>
         <div *ngIf="isUserLoggedIn" class="navbar-login-div">
             <button mat-button [mat-menu-trigger-for]="menuList">Account<mat-icon>expand_more</mat-icon></button>
             <mat-menu  class="account-nav-box" #menuList="matMenu" yPosition="below">
                 <a mat-menu-item routerLink="/my-orders">My Orders</a>
-                <a mat-menu-item routerLink="manage-orders">Manage Orders</a>
-                <a mat-menu-item routerLink="/manage-products">Manage Products</a>
                 <a mat-menu-item (click)="logout()">Log out</a>
             </mat-menu>
         </div>
@@ -15,5 +13,53 @@
             <a mat-button routerLink="/login">Log In</a>
             <a mat-button routerLink="/register">Register</a>
         </div>
+    </div>
+</div> -->
+
+<div class="button-nav">
+    <div class="menu-box" [style.left.px]="menuX" [style.top.px]="menuY" *ngIf="menuOpened" (mouseleave)="menuOpen()">
+        <mat-icon class="close-menu" (click)="menuOpen()">close</mat-icon>
+        <div *ngIf="!goLogin" id="menuText" class="menu-text">
+            <a mat-button routerLink="/">Home</a>
+            <a mat-button routerLink="/products">Products</a>
+            <div *ngIf="isUserLoggedIn" class="navbar-login-div">
+                <a mat-button routerLink="/my-orders">My Orders</a>
+                <a mat-button (click)="logout()">Log out</a>
+            </div>
+            <div *ngIf="!isUserLoggedIn" class="navbar-login-div">
+                <a mat-button (click)="enableLogin()">Log In</a>
+                <a mat-button routerLink="/register">Register</a>
+            </div>
+        </div>
+        <form *ngIf="goLogin" [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login">
+            <div class="login-box">
+                <span class="login"><h2>Log in!</h2></span>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Username</mat-label>
+                        <input matInput type="text" formControlName="username">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password">
+                    </mat-form-field>       
+                </div>
+                <p class="error"> {{ loginError?.error }}</p>
+                <div class="login">
+                    <button mat-raised-button color="primary" type="submit">Log In</button>
+                </div>
+                <div class="login-question">
+                    Haven't account? <a routerLink="/register">Register now!</a>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    <div #menu>
+        <button *ngIf="!menuOpened" mat-fab color="primary" (click)="menuOpen()">
+            <mat-icon>menu</mat-icon>
+        </button>
     </div>
 </div>

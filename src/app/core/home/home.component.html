@@ -1,2 +1,15 @@
 
-<p>home works!</p>
+<div class="ads-box">
+    <div class="arrow-div">
+        <mat-icon class="arrow-icon" (click)="changeAdLeft()">arrow_back_ios_new</mat-icon>
+    </div>
+    <mat-tab-group mat-align-tabs="center" headerPosition="below" dynamicHeight (selectedTabChange)="tabChanged($event)" [(selectedIndex)]="activeTab">
+        <mat-tab *ngFor="let ad of ads" >
+            <ng-template (click)="activeTab = ad" mat-tab-label>{{ad.title}}</ng-template>
+            <img class="img-ads" src="{{ ad.content }}">
+        </mat-tab>
+    </mat-tab-group>
+    <div class="arrow-div" >
+        <mat-icon class="arrow-icon" (click)="changeAdRight()">arrow_forward_ios_new</mat-icon>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService, IRegisterStatus, IUserData } from '../../auth.service';
+import { AuthService, IRegisterStatus, IUserData } from '../auth.service';
 import { PasswordValidators } from './password.validators';
 
 @Component({
